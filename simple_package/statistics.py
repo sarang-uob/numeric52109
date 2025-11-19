@@ -1,3 +1,5 @@
+#statistics.py - file responsible for basic statistics calculations
+
 ###
 ## simple_package - Module statistics.py
 ## Basic statistics calculations

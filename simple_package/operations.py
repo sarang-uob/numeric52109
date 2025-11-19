@@ -1,3 +1,5 @@
+#operations.py - file responsible for basic operations
+
 ###
 ## simple_package - Module operations.py
 ## Basic online calculator

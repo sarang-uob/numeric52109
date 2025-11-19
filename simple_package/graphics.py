@@ -1,9 +1,6 @@
-#File responsible for function rleated to visualisation 
+#graphics.py - file responsible for plotting functions
 
-###
-## simple_package - Module graphics.py
-## Plotting functions
-###
+
 
 import numpy as np
 import matplotlib.pyplot as plt
