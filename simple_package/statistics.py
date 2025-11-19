@@ -110,6 +110,19 @@ def plot_histogram(data):
 # Block for testing the statistics module directly
 # -------------------------------
 if __name__ == '__main__':
+    '''This code snipped runs when the script is executed directly. (For testing purposes)'''
+    sample_data = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5]
+    pretty_print_stats(sample_data)
+    
+    # Plot histogram only if matplotlib is available
+    if plt:
+        plot_histogram(sample_data)
+
+
+
+
+if __name__ == '__main__':
+    '''This code snipped runs when the script is executed directly. (For testing purposes)'''
     sample_data = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5]
     pretty_print_stats(sample_data)
     

@@ -47,42 +47,68 @@ def divide(a, b):
 #add all the functions defined above in the interface function
 
 def interface():
-    #modify this to have a loist of operations too so that if wrong operation is entered 
-    """Interface function"""
-    while True: #makes sure that the function continues to ask user untill 'exit' is entered
-        user_input = input("Enter operation (add, subtract, multiply, divide) or 'exit' to quit: ")
+    """Interactive calculator interface"""
+    import math  # for sine, cosine, tangent, log, etc.
+
+    # List of available operations
+    operations_list = [
+        'add', 'subtract', 'multiply', 'divide', 
+        'logarithm', 'sine', 'cosine', 'tangent', 
+        'power', 'square_root', 'factorial'
+    ]
+
+    while True:
+        # Ask user for operation first
+        user_input = input("Enter operation (add, subtract, multiply, divide, etc.) or 'exit' to quit: ").strip().lower()
+
         if user_input == 'exit':
+            print("Exiting...")
             break
+
+        # Check if the operation is valid
+        if user_input not in operations_list:
+            print("The operation is not recognized. Please try again!")
+            continue  # go back to ask for operation again
+
+        # Ask for numbers only if operation is valid
         try:
-            a = float(input("Enter first number: "))
-            b = float(input("Enter second number: "))
-            if user_input == 'add':
-                print(f"Result: {add(a, b)}")
-            elif user_input == 'subtract':
-                print(f"Result: {subtract(a, b)}")
-            elif user_input == 'multiply':
-                print(f"Result: {multiply(a, b)}")
-            elif user_input == 'divide':
-                print(f"Result: {divide(a, b)}")
-            #add other functions here as elif statements
-            elif user_input == 'logarithm':
-                print(f"Result: {logarithm(a, b)}")
-            elif user_input == 'sine':
-                print(f"Result: {sine(a)}")
-            elif user_input == 'cosine':
-                print(f"Result: {cosine(a)}")
-            elif user_input == 'tangent':
-                print(f"Result: {tangent(a)}")
-            elif user_input == 'power':
-                print(f"Result: {power(a, b)}")
-            elif user_input == 'square_root':
-                print(f"Result: {square_root(a)}")
-            elif user_input == 'factorial':
-                print(f"Result: {factorial(int(a))}") #factorial only takes integers
+            if user_input in ['sine', 'cosine', 'tangent', 'square_root', 'factorial']:
+                a = float(input("Enter the number: "))
             else:
-                print("The operation is not recognized. Please try again!")
+                a = float(input("Enter the first number: "))
+                b = float(input("Enter the second number: "))
+        except ValueError as e :
+            print(f"Invalid number entered. Please try again!: {e}")
+            continue
+
+        # Perform the operation
+        try:
+            if user_input == 'add':
+                result = add(a, b)
+            elif user_input == 'subtract':
+                result = subtract(a, b) 
+            elif user_input == 'multiply':
+                result = multiply(a, b)
+            elif user_input == 'divide':
+                result = divide(a, b)
+            elif user_input == 'logarithm':
+                result = logarithm(a, b)
+            elif user_input == 'sine':
+                result = sine(a)
+            elif user_input == 'cosine':
+                result = cosine(a)
+            elif user_input == 'tangent':
+                result = tangent(a)
+            elif user_input == 'power':
+                result = power(a, b)
+            elif user_input == 'square_root':
+                result = square_root(a)
+            elif user_input == 'factorial':
+                result = factorial(int(a))
+
+            print(f"Result: {result}")
         except Exception as e:
-            print(f"Error: {e}. Please try again.")
+            print(f"Error during calculation: {e}. Please try again.")
 
 #Adding other functions to the operations module
 def logarithm(a, base=10):
@@ -106,7 +132,6 @@ def square_root(a):
 def factorial(a):
     """Calculate factorial of a number."""
     return math.factorial(a)
-
 
 
 if __name__ == '__main__':
