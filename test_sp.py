@@ -11,7 +11,12 @@ if __name__ == '__main__':
     b = 2;
     
     ## Print their sum with a nice message.
-    print(f"The sum of {a} and {b} is {a + b}")
+    #Creating a separete variable for the sum
+    c = a + b
+    print(f"The sum of {a} and {b} is {c}")
 
     ## Now do the same for the function in sp
-    print(f"The product of {a} and {b} is {sp.add(a,b)}")
+
+    #fix- changed the product to sum in the string. and change sp.add to sp.operations.add while also adding an import in __init__.py of the package
+    print(f"The sum of {a} and {b} is {sp.operations.add(a,b)}")
+
