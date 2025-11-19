@@ -27,6 +27,7 @@
 
 def add(a, b):
     """Add two numbers."""
+    
     return a + b
 
 def subtract(a, b):
@@ -40,3 +41,26 @@ def multiply(a, b):
 def divide(a, b):
     """Divide one number by another."""
     return a / b
+
+#Adding the interface function (can be called from test_sp.py as sp.operations.interface())
+def interface():
+    """Interface function"""
+    while True: #makes sure that the function continues to ask user untill 'exit' is entered
+        user_input = input("Enter operation (add, subtract, multiply, divide) or 'exit' to quit: ")
+        if user_input == 'exit':
+            break
+        try:
+            a = float(input("Enter first number: "))
+            b = float(input("Enter second number: "))
+            if user_input == 'add':
+                print(f"Result: {add(a, b)}")
+            elif user_input == 'subtract':
+                print(f"Result: {subtract(a, b)}")
+            elif user_input == 'multiply':
+                print(f"Result: {multiply(a, b)}")
+            elif user_input == 'divide':
+                print(f"Result: {divide(a, b)}")
+            else:
+                print("Invalid operation. Please try again.")
+        except Exception as e:
+            print(f"Error: {e}. Please try again.")
