@@ -47,6 +47,7 @@ def divide(a, b):
 #add all the functions defined above in the interface function
 
 def interface():
+    #modify this to have a loist of operations too so that if wrong operation is entered 
     """Interface function"""
     while True: #makes sure that the function continues to ask user untill 'exit' is entered
         user_input = input("Enter operation (add, subtract, multiply, divide) or 'exit' to quit: ")
@@ -79,7 +80,7 @@ def interface():
             elif user_input == 'factorial':
                 print(f"Result: {factorial(int(a))}") #factorial only takes integers
             else:
-                print("Invalid operation. Please try again.")
+                print("The operation is not recognized. Please try again!")
         except Exception as e:
             print(f"Error: {e}. Please try again.")
 
@@ -105,3 +106,9 @@ def square_root(a):
 def factorial(a):
     """Calculate factorial of a number."""
     return math.factorial(a)
+
+
+
+if __name__ == '__main__':
+    '''This code snipped runs when the script is executed directly. (For testing purposes)'''
+    interface()
