@@ -83,10 +83,12 @@ if __name__ == '__main__':
     print('cosine(0) =', sp.operations.cosine(0))
     print('tangent(pi/4) =', sp.operations.tangent(math.pi / 4))
 
+    #additionally invoke the interface function
+    sp.operations.interface()
     print('\nNote: `sp.operations.interface()` is an interactive calculator loop')
     print('It is not executed in automated demos. Run it manually to try the REPL.')
 
-    section('Statistics (simple_package.statistics)')
+
     data_list = [1, 2, 2, 3, 4, 10]
     print('Statistics functions accept lists or NumPy arrays. Here we use a small list:')
     print('  data =', data_list)
@@ -105,27 +107,10 @@ if __name__ == '__main__':
     print('\nPretty-print: `sp.statistics.pretty_print_stats(data)` prints a user-friendly summary:')
     sp.statistics.pretty_print_stats(data_list)
 
-    section('Plotting (visualisation)')
+
     print('Two plotting helpers are available: `sp.graphics.plot_histogram` and')
     print('`sp.statistics.plot_histogram`. Both show a histogram and mark mean/median.')
 
-    if getattr(sp.statistics, 'plt', None):
-        print('Matplotlib detected — showing plots (two windows may open).')
-        print('First: `sp.graphics.plot_histogram(data)`')
-        sp.graphics.plot_histogram(data_list)
-
-        print('Second: `sp.statistics.plot_histogram(data)`')
-        sp.statistics.plot_histogram(data_list)
-    else:
-        print('Matplotlib not installed — skipping plots. Install with: `pip install matplotlib`')
-
-    section('Summary and next steps')
-    print(' - The package groups related functionality into submodules:')
-    print('     `operations`  : arithmetic and math helpers')
-    print('     `statistics`  : basic statistics and (optional) plotting')
-    print('     `graphics`    : plotting helpers that focus on visualization')
-    print('\n - To use the package in your own code:')
-    print('     import simple_package as sp')
-    print('     result = sp.operations.add(3, 4)')
-    print('\n - If you want tests, I can add a small `tests/` file with assertions.')
+    #visialisation using graphics module
+    sp.graphics.plot_histogram(data_list)
 
