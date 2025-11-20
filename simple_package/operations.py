@@ -43,6 +43,12 @@ def multiply(a, b):
 
 def divide(a, b):
     """Divide one number by another."""
+    try:
+        if b == 0:
+            raise ZeroDivisionError("Cannot divide by zero.")
+    except ZeroDivisionError as e:
+        print(f"Error: {e}")
+        return None
     return a / b
 
 #Adding the interface function (can be called from test_sp.py as sp.operations.interface())
